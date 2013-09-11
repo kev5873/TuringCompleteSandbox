@@ -1,1 +1,4 @@
-chickens
+var dog 5
+var cat 2
+add dog cat
+var catdog add dog cat

@@ -1,8 +1,73 @@
 from sys import argv
 
+stack = {}
+
+def setVariable(name, value):
+	stack[name] = value
+
+def showVariable(name):
+	if stack.has_key(name):
+		return stack[name]
+	else:
+		return "Variable does not exist"
+
+def add(x,y):
+	z = float(x) + float(y)
+	return z
+
+def subtract(x,y):
+	z = float(x) - float(y)
+	return z
+
+def multiply(x,y):
+	z = float(x) * float(y)
+	return z
+
+def divide(x,y):
+	if int(y) == 0:
+		z = "Error cannot divide by 0"
+	else:
+		z = float(x) / float(y)
+	return z
+
 def main():
-	script = open(argv[1])
-	print script.read()
-	print "Hello"
+	script = open(argv[1], 'r')
+	for line in script:
+		if line.count(' ') == 2:
+			comd  = line.split(' ', 2)[0].rstrip()
+			var1 = line.split(' ', 2)[1].rstrip()
+			var2 = line.split(' ', 2)[2].rstrip()
+			if comd == 'var':
+				setVariable(var1, var2)
+			if isinstance(var1, str):
+				var1 = showVariable(var1)
+			if isinstance(var2, str):
+				var2 = showVariable(var2)
+			if comd == 'add':
+				print add(var1, var2)
+			if comd == 'sub':
+				print subtract(var1, var2)
+			if comd == 'mul':
+				print multiply(var1, var2)
+			if comd == 'div':
+				print divide(var1, var2)
+		if line.count(' ') == 4:
+			comd  = line.split(' ', 4)[0].rstrip()
+			varName = line.split(' ', 4)[1].rstrip()
+			operation = line.split(' ', 4)[2].rstrip()
+			var1 = line.split(' ', 4)[3].rstrip()
+			var2 = line.split(' ', 4)[4].rstrip()
+			print comd
+			print varName
+			print operation
+			print var1
+			print var2
+			# if comd == 'var':
+			# 	setVariable(varName, var2)
+		if line.count(' ') == 1:
+			comd  = line.split(' ', 1)[0].rstrip()
+			var1 = line.split(' ', 1)[1].rstrip()
+			if comd == 'dsp':
+				print showVariable(var1)
 
 main()
