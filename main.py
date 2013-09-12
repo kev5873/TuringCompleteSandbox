@@ -34,14 +34,14 @@ def main():
 	script = open(argv[1], 'r')
 	for line in script:
 		if line.count(' ') == 2:
-			comd  = line.split(' ', 2)[0].rstrip()
+			comd = line.split(' ', 2)[0].rstrip()
 			var1 = line.split(' ', 2)[1].rstrip()
 			var2 = line.split(' ', 2)[2].rstrip()
 			if comd == 'var':
 				setVariable(var1, var2)
-			if isinstance(var1, str):
+			if not var1.isdigit():
 				var1 = showVariable(var1)
-			if isinstance(var2, str):
+			if not var2.isdigit():
 				var2 = showVariable(var2)
 			if comd == 'add':
 				print add(var1, var2)
@@ -57,13 +57,20 @@ def main():
 			operation = line.split(' ', 4)[2].rstrip()
 			var1 = line.split(' ', 4)[3].rstrip()
 			var2 = line.split(' ', 4)[4].rstrip()
-			print comd
-			print varName
-			print operation
-			print var1
-			print var2
-			# if comd == 'var':
-			# 	setVariable(varName, var2)
+			if comd == 'var':
+				if not var1.isdigit():
+					var1 = showVariable(var1)
+				if not var2.isdigit():
+					var2 = showVariable(var2)
+				if operation == 'add':
+					finalValue = add(var1, var2)
+				if operation == 'sub':
+					finalValue = subtract(var1, var2)
+				if operation == 'mul':
+					finalValue = multiply(var1, var2)
+				if operation == 'div':
+					finalValue = divide(var1, var2)
+				setVariable(varName, finalValue)
 		if line.count(' ') == 1:
 			comd  = line.split(' ', 1)[0].rstrip()
 			var1 = line.split(' ', 1)[1].rstrip()

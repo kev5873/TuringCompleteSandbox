@@ -1,4 +1,20 @@
-var dog 5
-var cat 2
-add dog cat
-var catdog add dog cat
+var dog 10
+dsp dog
+var dog sub dog 1
+dsp dog
+var dog sub dog 1
+dsp dog
+var dog sub dog 1
+dsp dog
+var dog sub dog 1
+dsp dog
+var dog sub dog 1
+dsp dog
+var dog sub dog 1
+dsp dog
+var dog sub dog 1
+dsp dog
+var dog sub dog 1
+dsp dog
+var dog sub dog 1
+dsp dog
