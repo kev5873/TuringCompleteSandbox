@@ -40,3 +40,5 @@ var f9 add f8 f7
 dsp f9
 var f10 add f9 f8
 dsp f10
+prt === Other Operations ===
+add 3 1/10
