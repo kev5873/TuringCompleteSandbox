@@ -1,3 +1,4 @@
+prt ======Counter======
 var dog 10
 dsp dog
 var dog sub dog 1
@@ -18,3 +19,24 @@ var dog sub dog 1
 dsp dog
 var dog sub dog 1
 dsp dog
+prt ======Fibonacci======
+var f1 0
+var f2 1
+dsp f1
+dsp f2
+var f3 add f1 f2
+dsp f3
+var f4 add f3 f2
+dsp f4
+var f5 add f4 f3
+dsp f5
+var f6 add f5 f4
+dsp f6
+var f7 add f6 f5
+dsp f7
+var f8 add f7 f6
+dsp f8
+var f9 add f8 f7
+dsp f9
+var f10 add f9 f8
+dsp f10

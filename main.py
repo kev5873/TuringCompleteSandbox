@@ -11,6 +11,9 @@ def showVariable(name):
 	else:
 		return "Variable does not exist"
 
+def displayText(text):
+	return text
+
 def add(x,y):
 	z = float(x) + float(y)
 	return z
@@ -37,12 +40,12 @@ def main():
 			comd = line.split(' ', 2)[0].rstrip()
 			var1 = line.split(' ', 2)[1].rstrip()
 			var2 = line.split(' ', 2)[2].rstrip()
+			if not var2.isdigit():
+				var2 = showVariable(var2)
 			if comd == 'var':
 				setVariable(var1, var2)
 			if not var1.isdigit():
 				var1 = showVariable(var1)
-			if not var2.isdigit():
-				var2 = showVariable(var2)
 			if comd == 'add':
 				print add(var1, var2)
 			if comd == 'sub':
@@ -76,5 +79,7 @@ def main():
 			var1 = line.split(' ', 1)[1].rstrip()
 			if comd == 'dsp':
 				print showVariable(var1)
+			if comd == 'prt':
+				print displayText(var1)
 
 main()
