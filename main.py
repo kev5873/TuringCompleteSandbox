@@ -15,23 +15,35 @@ def displayText(text):
 	return text
 
 def add(x,y):
-	z = float(x) + float(y)
-	return z
+	try:
+		z = float(x) + float(y)
+		return z
+	except ValueError:
+		return "Variable Error"
 
 def subtract(x,y):
-	z = float(x) - float(y)
-	return z
+	try:
+		z = float(x) - float(y)
+		return z
+	except ValueError:
+		return "Variable Error"
 
 def multiply(x,y):
-	z = float(x) * float(y)
-	return z
+	try:
+		z = float(x) * float(y)
+		return z
+	except ValueError:
+		return "Variable Error"
 
 def divide(x,y):
-	if int(y) == 0:
-		z = "Error cannot divide by 0"
-	else:
-		z = float(x) / float(y)
-	return z
+	try:
+		if int(y) == 0:
+			z = "Error cannot divide by 0"
+		else:
+			z = float(x) / float(y)
+		return z
+	except ValueError:
+		return "Variable Error"
 
 def main():
 	script = open(argv[1], 'r')
